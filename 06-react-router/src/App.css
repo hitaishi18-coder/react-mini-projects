@@ -1,0 +1,130 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #121212;
+  color: #e0e0e0;
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 15px 0;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 15px 0;
+  line-height: 1.6;
+}
+
+/* ===== Navbar ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e1e1e;
+  padding: 15px 30px;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #00bcd4;
+  letter-spacing: 1px;
+}
+
+.header ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.header ul li a {
+  text-decoration: none;
+  color: #ccc;
+  transition: all 0.3s;
+  font-size: 16px;
+}
+
+.header ul li a:hover {
+  color: #00bcd4;
+}
+
+/* ===== Page Container ===== */
+.page-container {
+  text-align: center;
+  padding: 50px 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Accent heading */
+.page-container h1 {
+  color: #00bcd4;
+  font-size: 32px;
+}
+
+.page-container p {
+  font-size: 18px;
+  color: #bbb;
+}
+
+/* ===== Sub Navigation (College Links) ===== */
+.sub-nav {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.sub-nav a {
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: #2a2a2a;
+  color: #ccc;
+  transition: all 0.3s;
+}
+
+.sub-nav a:hover {
+  background: #00bcd4;
+  color: #121212;
+}
+
+/* ===== User List ===== */
+.user-list div {
+  margin: 10px 0;
+}
+
+.user-list a {
+  text-decoration: none;
+  color: #00bcd4;
+  transition: all 0.3s;
+}
+
+.user-list a:hover {
+  color: #ff9800;
+}
+
+/* ===== 404 Page ===== */
+.error-page h1 {
+  color: #e53935;
+  font-size: 40px;
+}
+
+.error-page p {
+  color: #aaa;
+}
+
+.error-page img {
+  max-width: 350px;
+  margin-top: 20px;
+  border-radius: 10px;
+}

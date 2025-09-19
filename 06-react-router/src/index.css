@@ -1,0 +1,91 @@
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #161b22;
+  padding: 15px 30px;
+  border-bottom: 1px solid #30363d;
+}
+
+.header .logo {
+  font-size: 22px;
+  color: #58a6ff;
+  margin: 0;
+}
+
+.header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #c9d1d9;
+  transition: color 0.2s;
+}
+
+.header nav a:hover {
+  color: #58a6ff;
+}
+
+.content {
+  flex: 1;
+  padding: 40px;
+}
+
+.page h2 {
+  color: #58a6ff;
+}
+
+.page p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  gap: 15px;
+}
+
+.login-form input {
+  padding: 10px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #0d1117;
+  color: #e6edf3;
+}
+
+.login-form input:focus {
+  outline: 1px solid #58a6ff;
+}
+
+.login-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #238636;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-form button:hover {
+  background: #2ea043;
+}
+
+.notfound {
+  text-align: center;
+  color: #f85149;
+}
