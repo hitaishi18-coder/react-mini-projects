@@ -1,13 +1,12 @@
-import React, { useId, useState } from 'react'
+import  { useId, useState } from 'react'
 import useCurrencyInfo from '../hooks/useCurrencyInfo'
 import "../App.css";
 
-
-const Input: React.FC = () => {
-  const [amount, setAmount] = useState<number>(1)
-  const [from, setFrom] = useState<string>('USD')
-  const [to, setTo] = useState<string>('INR')
-  const [convertedAmount, setConvertedAmount] = useState<number>(1)
+function Input() {
+  const [amount, setAmount] = useState(1)
+  const [from, setFrom] = useState('USD')
+  const [to, setTo] = useState('INR')
+  const [convertedAmount, setConvertedAmount] = useState(1)
 
   const amountInputId = useId()
   const currencyInfo = useCurrencyInfo()
@@ -19,14 +18,14 @@ const Input: React.FC = () => {
 
   const options = Object.keys(currencyInfo)
 
-  const handleSwap = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSwap = (e) => {
     e.preventDefault()
     setFrom(to)
     setTo(from)
     setConvertedAmount(0)
   }
 
-  const handleConvert = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleConvert = (e) => {
     e.preventDefault()
     const rate = currencyInfo[to]
     if (rate) {
