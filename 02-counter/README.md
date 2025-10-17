@@ -1,69 +1,71 @@
-# React + TypeScript + Vite
+✅ Counter App with Increment & Decrement Limits
+This React app displays a counter that starts at **10** and allows users to **increment** or **decrement** the value using buttons — with limits set between **0 and 30**.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Live Preview
+To run the app locally:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/hitaishi18-coder/react-counter-app.git  
+cd react-counter-app  
+npm install  
+npm run dev  
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+🧠 About the Project
+This project demonstrates:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+🔢 Counter functionality using **React useState**
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+🚫 Value limiting using **conditional logic** (min = 0, max = 30)
+
+⚛️ Component reusability with a separate **Header (Hitaishi component)**
+
+🧩 Clean and structured component layout
+
+🛠 Tech Stack
+⚛️ React (Vite)
+🎯 Functional Components
+🧠 useState Hook
+💅 Custom CSS styling
+
+📂 Folder Structure
+
+```arduino
+react-counter-app/
+├── src/
+│   ├── App.jsx         // Main component handling counter logic
+│   ├── Hitaishi.tsx    // Header component displaying the title
+│   ├── App.css         // Styling for the counter UI
+│   ├── index.css       // Global styles
+│   └── main.jsx        // Entry point rendering <App />
+├── index.html
+├── package.json
+└── vite.config.js
 ```
+
+📸 Features
+✅ Counter starts from **10**
+✅ Increment button increases value up to **30**
+✅ Decrement button decreases value down to **0**
+✅ Clean, minimal, and centered UI
+✅ Reusable header component
+
+💡 How It Works
+
+**In App.jsx**
+
+* The counter state is initialized with `useState(10)`.
+* `addValue()` increments the counter until **30**.
+* `subtractValue()` decrements the counter until **0**.
+* Both functions use the **functional update pattern** for reliable state changes.
+
+**In Hitaishi.tsx**
+
+* Displays a simple title header — “COUNTER”.
+
+🔍 Example Usage
+User clicks **+ Add** → counter increases by 1 (until 30)
+User clicks **− Subtract** → counter decreases by 1 (until 0)
+
+🧑‍💻 Author
+Built with 💚 by [@hitaishi18-coder](https://github.com/hitaishi18-coder)

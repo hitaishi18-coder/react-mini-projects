@@ -1,12 +1,70 @@
-# React + Vite
+✅ RGB Color Mixer with Local Storage 🎨
+This React app lets users **create custom colors** by adjusting RGB sliders in real time. The chosen color can be **saved to local storage**, so it remains available even after the page reloads.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Live Preview
+To run the app locally:
 
-Currently, two official plugins are available:
+```bash
+git clone https://github.com/hitaishi18-coder/react-color-mixer.git  
+cd react-color-mixer  
+npm install  
+npm run dev  
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🧠 About the Project
+This project demonstrates:
 
-## Expanding the ESLint configuration
+🌈 Real-time **color blending** using RGB values
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+💾 **Local Storage** persistence for saving user preferences
+
+⚛️ **React useState Hook** for managing color states
+
+🎨 Dynamic inline styling to reflect the chosen color instantly
+
+🛠 Tech Stack
+⚛️ React (Vite)
+🎯 Functional Components
+🧠 useState Hook
+💾 Local Storage for data persistence
+💅 Custom CSS Styling
+
+📂 Folder Structure
+
+```arduino
+react-color-mixer/
+├── src/
+│   ├── App.jsx          // Main component handling RGB color mixing logic
+│   ├── App.css          // Styling for sliders and color preview
+│   ├── main.jsx         // Entry point rendering <App />
+│   └── index.css        // Global styles
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+📸 Features
+✅ Adjust Red, Green, and Blue values with sliders
+✅ Live color preview updates instantly
+✅ Save custom color combinations to Local Storage
+✅ Automatically loads saved colors on reload
+✅ Simple, minimal UI for easy color experimentation
+
+💡 How It Works
+
+**In App.jsx**
+
+* Retrieves saved color values (`r`, `g`, `b`) from **localStorage**.
+* Uses `useState` to manage RGB values individually.
+* Each slider controls one color channel (0–255).
+* The background of the color box updates dynamically with `rgb(r, g, b)`.
+* The **Save button** stores the current RGB values in localStorage.
+
+🔍 Example Usage
+1️⃣ Move sliders to create your desired color.
+2️⃣ Watch the color box update live.
+3️⃣ Click **Save Color Combination** to store it locally.
+4️⃣ Refresh — your saved color will reload automatically.
+
+🧑‍💻 Author
+Built with 💚 by [@hitaishi18-coder](https://github.com/hitaishi18-coder)

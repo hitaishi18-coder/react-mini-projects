@@ -1,16 +1,78 @@
-# React + Vite
+✅ Secure Password Generator 🔐
+This React app generates **strong and customizable passwords** based on user preferences like **length**, **numbers**, and **special characters**. It also includes a **copy-to-clipboard** feature with a live **toast alert** for better UX.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Live Preview
+To run the app locally:
 
-Currently, two official plugins are available:
+```bash
+git clone https://github.com/hitaishi18-coder/react-password-generator.git  
+cd react-password-generator  
+npm install  
+npm run dev  
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🧠 About the Project
+This project demonstrates:
 
-## React Compiler
+⚡ Real-time password generation using **React hooks**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔢 Custom password length selection with a range slider
 
-## Expanding the ESLint configuration
+🔠 Option to include **numbers** and **special characters**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📋 One-click **copy-to-clipboard** functionality
+
+💬 Auto-disappearing **toast alert** when password is copied
+
+🛠 Tech Stack
+⚛️ React (Vite)
+🎯 Functional Components
+🧠 useState, useEffect, useCallback & useRef Hooks
+💅 Tailwind CSS + shadcn/ui for modern styling
+
+📂 Folder Structure
+
+```arduino
+react-password-generator/
+├── src/
+│   ├── App.jsx             // Main logic for password generation
+│   ├── App.css             // Styling for UI components
+│   ├── main.jsx            // Entry point rendering <App />
+│   └── components/ui/      // UI elements from shadcn (Button, Input)
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+📸 Features
+✅ Generate secure passwords instantly
+✅ Adjustable length (6–100 characters)
+✅ Include/exclude numbers and special characters
+✅ One-click copy to clipboard
+✅ Subtle toast notification after copy
+✅ Clean, minimal, responsive UI
+
+💡 How It Works
+
+**In App.jsx**
+
+* Uses `useState` to manage password settings: `length`, `number`, `charAllowed`, and generated `password`.
+* `useCallback` ensures performance optimization for password generation and clipboard copying.
+* Passwords are built dynamically from strings containing **letters, numbers, and symbols**.
+* A `useRef` reference allows copying password text directly.
+* When a user clicks **Copy**, a temporary “Password copied!” alert appears.
+
+**Password Generation Logic**
+1️⃣ User selects length (6–100).
+2️⃣ Chooses whether to include numbers or special characters.
+3️⃣ The app creates a random password and displays it instantly.
+4️⃣ Clicking **Copy** saves it to clipboard with a confirmation toast.
+
+🔍 Example Usage
+
+* Move the range slider → password length updates in real time.
+* Toggle checkboxes for Numbers / Characters.
+* Click **Copy** to save the generated password.
+
+🧑‍💻 Author
+Built with 💚 by [@hitaishi18-coder](https://github.com/hitaishi18-coder)

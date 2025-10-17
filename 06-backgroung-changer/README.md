@@ -1,16 +1,67 @@
-# React + Vite
+✅ Background Color Changer 🎨
+This React app allows users to **change the background color** of the screen dynamically with just one click. It provides multiple color buttons — each instantly updates the background, creating a smooth and interactive experience.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Live Preview
+To run the app locally:
 
-Currently, two official plugins are available:
+```bash
+git clone https://github.com/hitaishi18-coder/react-background-color-changer.git  
+cd react-background-color-changer  
+npm install  
+npm run dev  
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🧠 About the Project
+This project demonstrates:
 
-## React Compiler
+🎨 Real-time **background color change** using React state
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+⚛️ **Event handling** with button clicks
 
-## Expanding the ESLint configuration
+🧩 **Reusable button components** using `shadcn/ui`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+💅 **Responsive design** with Tailwind CSS
+
+🛠 Tech Stack
+⚛️ React (Vite)
+🎯 Functional Components
+🧠 useState Hook
+💅 Tailwind CSS + shadcn/ui for styling
+
+📂 Folder Structure
+
+```arduino
+react-background-color-changer/
+├── src/
+│   ├── App.jsx               // Main component handling color change logic
+│   ├── App.css               // Custom styles (if any)
+│   ├── main.jsx              // Entry point rendering <App />
+│   └── components/ui/button  // Reusable Button component from shadcn/ui
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+📸 Features
+✅ Instantly change background color with a single click
+✅ 10 predefined color options (Red, Green, Blue, Black, Pink, Purple, Gray, Yellow, White, Lavender)
+✅ Smooth transitions with Tailwind styling
+✅ Fixed floating color palette for easy access
+✅ Responsive and minimal design
+
+💡 How It Works
+
+**In App.jsx**
+
+* The background color is controlled using `useState("white")`.
+* Each color button updates the state via `onClick`, which changes the page background.
+* Buttons are created using the **shadcn/ui Button** component with inline background colors.
+* The color buttons are wrapped in a fixed container at the bottom center of the screen for easy use.
+
+🔍 Example Usage
+1️⃣ Launch the app — background starts as **white**.
+2️⃣ Click any color button — the background updates instantly.
+3️⃣ Try different combinations to preview your favorite shade.
+
+🧑‍💻 Author
+Built with 💚 by [@hitaishi18-coder](https://github.com/hitaishi18-coder)
