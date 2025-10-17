@@ -1,0 +1,234 @@
+🧠 REDUX TOOLKIT — COMPLETE NOTES (SIMPLIFIED GUIDE)
+
+1️⃣ What is Redux Toolkit?
+Redux Toolkit (RTK) is the official, recommended way to write Redux code. It simplifies setup and reduces boilerplate.
+
+It helps you:
+- Manage global state easily
+- Write less repetitive code
+- Handle immutability automatically
+- Make Redux faster and easier to use
+
+--------------------------------------------------
+2️⃣ Basic Concepts of Redux
+
+Term          | Meaning
+---------------|-----------------------------------
+Store          | Holds the whole app’s state
+State          | The actual data
+Action         | Describes what happened (e.g., ADD_TODO)
+Reducer        | Describes how state should change
+Dispatch       | Sends actions to the store
+Selector       | Reads data from the store
+
+--------------------------------------------------
+3️⃣ Redux Toolkit Main Functions
+
+Function               | Purpose
+------------------------|---------------------------
+configureStore()        | Creates the store
+createSlice()           | Creates reducers + actions
+nanoid()                | Generates unique IDs
+useSelector()           | Reads data from store
+useDispatch()           | Sends actions to store
+
+--------------------------------------------------
+4️⃣ Redux Toolkit Flow (Step-by-Step)
+
+STEP 1: Create a Slice
+---------------------------------
+todoSlice.js
+---------------------------------
+import { createSlice, nanoid } from "@reduxjs/toolkit";
+
+const initialState = {
+  todos: [{ id: 1, text: "Hello World" }]
+};
+
+export const todoSlice = createSlice({
+  name: "todo",
+  initialState,
+  reducers: {
+    addTodo: (state, action) => {
+      const todo = { id: nanoid(), text: action.payload };
+      state.todos.push(todo);
+    },
+    removeTodo: (state, action) => {
+      state.todos = state.todos.filter(todo => todo.id !== action.payload);
+    },
+    updateTodo: (state, action) => {
+      const { id, newText } = action.payload;
+      const todo = state.todos.find(t => t.id === id);
+      if (todo) todo.text = newText;
+    }
+  }
+});
+
+export const { addTodo, removeTodo, updateTodo } = todoSlice.actions;
+export default todoSlice.reducer;
+
+--------------------------------------------------
+STEP 2: Create Store
+---------------------------------
+store.js
+---------------------------------
+import { configureStore } from "@reduxjs/toolkit";
+import todoReducer from "../features/todo/todoSlice";
+
+export const store = configureStore({
+  reducer: todoReducer
+});
+
+--------------------------------------------------
+STEP 3: Provide Store to App
+---------------------------------
+main.jsx or index.js
+---------------------------------
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+--------------------------------------------------
+STEP 4: Use Redux in Components
+---------------------------------
+AddTodo.jsx
+---------------------------------
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../features/todo/todoSlice";
+
+function AddTodo() {
+  const [input, setInput] = useState("");
+  const dispatch = useDispatch();
+
+  const addTodoHandler = (e) => {
+    e.preventDefault();
+    if (input.trim() === "") return;
+    dispatch(addTodo(input));
+    setInput("");
+  };
+
+  return (
+    <form onSubmit={addTodoHandler}>
+      <input
+        type="text"
+        placeholder="Add todo"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <button>Add</button>
+    </form>
+  );
+}
+
+export default AddTodo;
+
+---------------------------------
+Todo.jsx
+---------------------------------
+import { useSelector, useDispatch } from "react-redux";
+import { removeTodo, updateTodo } from "../features/todo/todoSlice";
+import { useState } from "react";
+
+function Todo() {
+  const todos = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
+
+  const [editId, setEditId] = useState(null);
+  const [editText, setEditText] = useState("");
+
+  const handleEdit = (todo) => {
+    setEditId(todo.id);
+    setEditText(todo.text);
+  };
+
+  const handleUpdate = (id) => {
+    dispatch(updateTodo({ id, newText: editText }));
+    setEditId(null);
+    setEditText("");
+  };
+
+  return (
+    <ul>
+      {todos.map((todo) => (
+        <li key={todo.id}>
+          {editId === todo.id ? (
+            <input
+              value={editText}
+              onChange={(e) => setEditText(e.target.value)}
+            />
+          ) : (
+            <span>{todo.text}</span>
+          )}
+
+          {editId === todo.id ? (
+            <button onClick={() => handleUpdate(todo.id)}>Save</button>
+          ) : (
+            <button onClick={() => handleEdit(todo)}>Edit</button>
+          )}
+
+          <button onClick={() => dispatch(removeTodo(todo.id))}>X</button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export default Todo;
+
+--------------------------------------------------
+5️⃣ Code Flow Summary
+
+User Types Task ➜ dispatch(addTodo(input))
+          ↓
+action.payload = "Study Redux"
+          ↓
+Reducer (addTodo) updates state.todos
+          ↓
+UI automatically re-renders
+
+--------------------------------------------------
+6️⃣ Advantages of Redux Toolkit
+
+✅ Less boilerplate code
+✅ Handles immutability automatically
+✅ Easy to debug with Redux DevTools
+✅ Simple to scale for large projects
+✅ Works seamlessly with React Hooks
+
+--------------------------------------------------
+7️⃣ Folder Structure
+
+src/
+ ┣ app/
+ ┃ ┗ store.js
+ ┣ features/
+ ┃ ┗ todo/
+ ┃    ┗ todoSlice.js
+ ┣ components/
+ ┃ ┣ AddTodo.jsx
+ ┃ ┗ Todo.jsx
+ ┗ App.jsx
+
+--------------------------------------------------
+8️⃣ Common Hooks
+
+useDispatch() → To send actions
+useSelector() → To read data from store
+
+Example:
+const dispatch = useDispatch();
+const todos = useSelector(state => state.todos);
+
+--------------------------------------------------
+🏁 Summary
+
+Redux Toolkit = Modern, simple, efficient way to manage app-wide state using less code and more structure.
